@@ -1,0 +1,16 @@
+var unirest = require("unirest");
+
+var req = unirest("GET", "https://api-football-v1.p.rapidapi.com/v2/predictions/157462");
+
+req.headers({
+	"x-rapidapi-key": "114bae10dcmsh9fcd2b5079a06f5p189cf3jsn1b112cb4d455",
+	"x-rapidapi-host": "api-football-v1.p.rapidapi.com",
+	"useQueryString": true
+});
+
+
+req.end(function (res) {
+	if (res.error) throw new Error(res.error);
+
+	console.log(res.body);
+});
